@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import heroBg from '../assets/hero_final.jpg';
+import mobileHeroBg from '../assets/mobile_hero_new.jpeg';
 
 export default function Hero() {
   return (
@@ -11,10 +12,17 @@ export default function Hero() {
         transition={{ duration: 10, ease: "linear" }}
         className="absolute inset-0 z-0"
       >
+        {/* Mobile specific image */}
+        <img 
+          src={mobileHeroBg} 
+          alt="Wedding Ritual Mobile" 
+          className="w-full h-full object-cover object-center md:hidden"
+        />
+        {/* Desktop image */}
         <img 
           src={heroBg} 
           alt="Wedding Ritual" 
-          className="w-full h-full object-cover object-center"
+          className="hidden md:block w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/40" />
       </motion.div>
@@ -24,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="font-serif text-4xl md:text-6xl lg:text-[6rem] mb-8 uppercase font-bold tracking-[0.1em] text-rosegold whitespace-nowrap"
+          className="font-serif text-[33px] md:text-6xl lg:text-[6rem] mb-8 uppercase font-bold tracking-[0.1em] text-rosegold whitespace-nowrap"
         >
           Wedding Canvaz
         </motion.h1>
@@ -33,7 +41,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-beige/80 text-lg md:text-2xl tracking-[0.3em] uppercase font-serif italic mb-12"
+          className="text-beige/80 text-lg md:text-2xl tracking-[0.3em] uppercase font-serif italic mb-12 font-bold"
         >
           Collaboration with Pratichhabi
         </motion.p>
