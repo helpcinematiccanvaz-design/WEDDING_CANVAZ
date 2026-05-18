@@ -80,23 +80,22 @@ export default function Gallery() {
           Moments We Capture
         </motion.h2>
 
-        <div className="grid grid-cols-2 gap-4 md:block md:masonry-grid">
+        <div className="masonry-grid">
           {allMoments.map((url, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: (index % 3) * 0.1 }}
-              className="group relative cursor-pointer overflow-hidden rounded-xl md:rounded-2xl border border-rosegold/5 aspect-square md:aspect-auto md:masonry-item md:mb-6"
+              className="masonry-item group relative cursor-pointer"
             >
               <img 
                 src={url} 
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 md:h-auto" 
+                className="w-full rounded-2xl transition-all duration-700 hover:scale-[1.02]" 
                 alt={`Moment ${index}`}
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl md:rounded-2xl pointer-events-none" />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
             </motion.div>
           ))}
         </div>
