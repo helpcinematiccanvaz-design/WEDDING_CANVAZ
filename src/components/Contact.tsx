@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Send, MapPin, Calendar, Phone, User, Info, Mail } from 'lucide-react';
+import { Send, Calendar, Phone, User, Info, Mail } from 'lucide-react';
 import React, { useState } from 'react';
 
 export default function Contact() {
@@ -8,10 +8,7 @@ export default function Contact() {
     phone: '',
     event: '',
     otherEvent: '',
-    dates: [] as string[],
-    location: '',
-    pincode: '',
-    fullAddress: ''
+    dates: [] as string[]
   });
 
   const [currentDateInput, setCurrentDateInput] = useState('');
@@ -52,23 +49,13 @@ export default function Contact() {
     }
   };
 
-  const handlePincodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 6) {
-      setFormData({ ...formData, pincode: value });
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Basic validation check
-    if (!formData.fullName || !formData.phone || !formData.event || formData.dates.length === 0 || !formData.location || !formData.pincode || !formData.fullAddress) {
+    if (!formData.fullName || !formData.phone || !formData.event || formData.dates.length === 0) {
       return;
     }
     if (formData.event === 'Others' && !formData.otherEvent) {
-      return;
-    }
-    if (formData.pincode.length !== 6) {
       return;
     }
 
@@ -100,10 +87,7 @@ export default function Contact() {
         phone: '',
         event: '',
         otherEvent: '',
-        dates: [],
-        location: '',
-        pincode: '',
-        fullAddress: ''
+        dates: []
       });
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
@@ -111,13 +95,6 @@ export default function Contact() {
       alert('There was an error submitting the form. Please try again.');
     }
   };
-
-  const locations = [
-    "Kolkata", "Delhi", "Mumbai", "Bangalore", "Hyderabad", 
-    "Chennai", "Ahmedabad", "Pune", "Surat", "Jaipur", 
-    "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", 
-    "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara"
-  ].sort();
 
   return (
     <div className="bg-[#120707] pb-24">
@@ -172,38 +149,17 @@ export default function Contact() {
             </motion.h2>
             <div className="flex justify-center items-center gap-2 mb-12">
                <div className="w-1.5 h-1.5 bg-rosegold rounded-full animate-pulse" />
-               <p className="text-rosegold/60 uppercase tracking-[0.3em] text-[10px]">Booking 2026 Destinations</p>
+               <p className="text-rosegold/60 uppercase tracking-[0.3em] text-[10px]"> Book Your Slots Now </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16 border-b border-white/5 pb-16">
-              <div className="text-center group">
-                <div className="w-12 h-12 bg-rosegold/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-rosegold/10 group-hover:border-rosegold/30 transition-colors">
-                  <MapPin size={20} className="text-rosegold" />
-                </div>
-                <p className="text-[10px] uppercase tracking-widest text-rosegold mb-2 font-semibold">Location</p>
-                <p className="text-white/60 text-xs leading-relaxed font-light">259 , Parnasree Pally ,<br />Kolkata, India, 700060</p>
-              </div>
-              <div className="text-center group">
-                <div className="w-12 h-12 bg-rosegold/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-rosegold/10 group-hover:border-rosegold/30 transition-colors">
-                  <Phone size={20} className="text-rosegold" />
-                </div>
-                <p className="text-[10px] uppercase tracking-widest text-rosegold mb-2 font-semibold">Call Us</p>
-                <p className="text-white/60 text-xs font-light">+91 8617294235</p>
-              </div>
-              <div className="text-center group">
-                <div className="w-12 h-12 bg-rosegold/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-rosegold/10 group-hover:border-rosegold/30 transition-colors">
-                  <Mail size={20} className="text-rosegold" />
-                </div>
-                <p className="text-[10px] uppercase tracking-widest text-rosegold mb-2 font-semibold">Email</p>
-                <p className="text-white/60 text-xs font-light break-all px-4">info.weddingcanvaz@gmail.com</p>
-              </div>
-            </div>
+        
+
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
               {/* Full Name */}
-              <div className="space-y-2 relative">
+              <div className="space-y-2 relative col-span-2 md:col-span-1">
                 <label className="text-[10px] uppercase tracking-widest text-rosegold ml-1 block">Full Name *</label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 text-rosegold/40" size={18} />
@@ -213,16 +169,16 @@ export default function Contact() {
                     placeholder="Enter your name"
                     value={formData.fullName}
                     onChange={handleFullNameChange}
-                    className="w-full bg-black/20 border border-white/5 rounded-2xl px-12 py-4 focus:border-rosegold outline-none transition-colors placeholder:text-white/10 text-sm tracking-wide text-white"
+                    className="w-full bg-black/20 border border-white/5 rounded-2xl px-12 py-4 focus:border-rosegold outline-none transition-colors placeholder:text-white/10 text-xs md:text-sm tracking-wide text-white"
                   />
                 </div>
               </div>
 
               {/* Phone Number */}
-              <div className="space-y-2">
+              <div className="space-y-2 col-span-2 md:col-span-1">
                 <label className="text-[10px] uppercase tracking-widest text-rosegold ml-1 block">Phone Number *</label>
                 <div className="relative flex">
-                  <span className="bg-black/40 border border-white/5 border-r-0 rounded-l-2xl px-4 py-4 text-rosegold text-sm flex items-center">
+                  <span className="bg-black/40 border border-white/5 border-r-0 rounded-l-2xl px-3 md:px-4 py-4 text-rosegold text-xs md:text-sm flex items-center">
                     +91
                   </span>
                   <input 
@@ -232,7 +188,7 @@ export default function Contact() {
                     placeholder="10 digit number"
                     value={formData.phone}
                     onChange={handlePhoneChange}
-                    className="w-full bg-black/20 border border-white/5 rounded-r-2xl px-4 py-4 focus:border-rosegold outline-none transition-colors placeholder:text-white/10 text-sm tracking-wide text-white"
+                    className="w-full bg-black/20 border border-white/5 rounded-r-2xl px-4 py-4 focus:border-rosegold outline-none transition-colors placeholder:text-white/10 text-xs md:text-sm tracking-wide text-white"
                   />
                 </div>
               </div>
@@ -320,55 +276,6 @@ export default function Contact() {
               {formData.dates.length === 0 && (
                 <p className="text-[10px] text-white/20 italic ml-1">Please select at least one date</p>
               )}
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Location Dropdown */}
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-rosegold ml-1 block">City *</label>
-                <div className="relative">
-                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-rosegold/40" size={18} />
-                  <select 
-                    required
-                    value={formData.location}
-                    onChange={(e) => setFormData({...formData, location: e.target.value})}
-                    className="w-full bg-black/20 border border-white/5 rounded-2xl px-12 py-4 focus:border-rosegold outline-none transition-colors text-white/60 text-sm tracking-wide"
-                  >
-                    <option value="" disabled className="bg-deep">Select City</option>
-                    {locations.map(city => (
-                      <option key={city} value={city} className="bg-deep">{city}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Pincode */}
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-rosegold ml-1 block">Pin Code *</label>
-                <input 
-                  type="text" 
-                  required
-                  pattern="[0-9]{6}"
-                  maxLength={6}
-                  placeholder="6-digit PIN code"
-                  value={formData.pincode}
-                  onChange={handlePincodeChange}
-                  className="w-full bg-black/20 border border-white/5 rounded-2xl px-6 py-4 focus:border-rosegold outline-none transition-colors placeholder:text-white/10 text-sm tracking-wide text-white"
-                />
-              </div>
-            </div>
-
-            {/* Full Location / Address */}
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-widest text-rosegold ml-1 block">Full Location / Address (Google Maps Link acceptable) *</label>
-              <textarea 
-                required
-                rows={3}
-                placeholder="Write your full address or paste Google Maps location link here..."
-                value={formData.fullAddress}
-                onChange={(e) => setFormData({...formData, fullAddress: e.target.value})}
-                className="w-full bg-black/20 border border-white/5 rounded-2xl px-6 py-4 focus:border-rosegold outline-none transition-colors placeholder:text-white/10 text-sm tracking-wide text-white"
-              />
             </div>
 
             <button 

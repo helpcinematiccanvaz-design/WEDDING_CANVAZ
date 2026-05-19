@@ -182,15 +182,15 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
         </div>
 
         {/* Filter Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16 border-b border-rosegold/5 pb-8">
+        <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-2 md:gap-4 mb-16 border-b border-rosegold/5 pb-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => onCategoryChange(cat)}
-              className={`px-6 py-2 rounded-full text-[10px] uppercase tracking-widest transition-all duration-300 ${
+              className={`px-3 md:px-6 py-2 rounded-full text-[9px] md:text-[10px] uppercase tracking-widest transition-all duration-300 ${
                 activeCategory === cat 
                 ? "bg-rosegold text-maroon font-bold" 
-                : "text-beige/40 hover:text-rosegold"
+                : "text-beige/40 hover:text-rosegold border border-rosegold/10 md:border-transparent"
               }`}
             >
               {cat}
@@ -201,7 +201,7 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
         {/* Gallery Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {categoryData[activeCategory as keyof typeof categoryData].map((url, index) => (
@@ -212,7 +212,7 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group relative h-[400px] overflow-hidden rounded-[2rem] border border-rosegold/10 transition-all duration-500 ${
+                className={`group relative h-[180px] md:h-[400px] overflow-hidden rounded-[1.5rem] md:rounded-[2rem] border border-rosegold/10 transition-all duration-500 ${
                   (activeCategory === "Pre-Wedding Shoots" && (index === 0 || index === 5)) ||
                   (activeCategory === "Weddings" && [weddingNew6, weddingRitualNew, weddingMandap1, weddingSindoor, weddingVarmala].includes(url))
                     ? "lg:col-span-2" : ""
