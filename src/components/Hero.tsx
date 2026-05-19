@@ -32,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="font-Room Bold -[33px] md:text-6xl lg:text-[6rem] mb-8 uppercase font-bold tracking-[0.1em] text-rosegold whitespace-nowrap"
+          className="font-bold text-[24px] md:text-6xl lg:text-[6rem] mb-8 uppercase tracking-[0.1em] text-rosegold whitespace-nowrap font-serif"
         >
           Wedding Canvaz
         </motion.h1>
@@ -41,7 +41,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-beige/80 text-lg md:text-2xl tracking-[0.3em] uppercase font- Room Bold mb-12 font-bold"
+          className="text-beige/80 text-[9px] md:text-2xl tracking-[0.1em] md:tracking-[0.3em] uppercase mb-12 font-bold font-serif px-4"
         >
           Collaboration with Studio Pratichhabi
         </motion.p>

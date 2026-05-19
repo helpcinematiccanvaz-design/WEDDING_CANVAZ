@@ -12,6 +12,7 @@ import eventStory6 from '../assets/event_story6.jpg';
 import eventStory7 from '../assets/event_story7.jpg';
 import quoteBg from '../assets/quote_bg_v2.jpg';
 import bannerTimeless from '../assets/banner_timeless_story.jpeg';
+import bannerTimelessMobile from '../assets/RTHR.jpg.jpeg';
 import weddingBannerNew from '../assets/wedding_banner_new.jpg';
 
 const weddingStories = [
@@ -80,22 +81,22 @@ export default function Gallery() {
           Moments We Capture
         </motion.h2>
 
-        <div className="masonry-grid">
+        <div className="grid grid-cols-2 md:block masonry-grid gap-4 md:gap-0">
           {allMoments.map((url, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: (index % 3) * 0.1 }}
-              className="masonry-item group relative cursor-pointer"
+              className="masonry-item group relative cursor-pointer mb-0 md:mb-6"
             >
               <img 
                 src={url} 
-                className="w-full rounded-2xl transition-all duration-700 hover:scale-[1.02]" 
+                className="w-full aspect-square md:aspect-auto object-cover rounded-xl md:rounded-2xl transition-all duration-700 hover:scale-[1.02]" 
                 alt={`Moment ${index}`}
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl md:rounded-2xl pointer-events-none" />
             </motion.div>
           ))}
         </div>
@@ -104,9 +105,16 @@ export default function Gallery() {
       {/* Quote Section */}
       <section className="relative h-[60vh] flex items-center justify-center my-32 overflow-hidden bg-attachment-fixed">
          <div className="absolute inset-0 bg-black/20 z-10" />
+         {/* Desktop Image */}
          <img 
             src={bannerTimeless}
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            className="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
+            referrerPolicy="no-referrer"
+         />
+         {/* Mobile Image */}
+         <img 
+            src={bannerTimelessMobile}
+            className="absolute inset-0 w-full h-full object-cover z-0 md:hidden"
             referrerPolicy="no-referrer"
          />
       </section>
