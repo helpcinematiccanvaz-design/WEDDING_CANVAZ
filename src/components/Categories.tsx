@@ -89,7 +89,7 @@ export default function Categories({ onCategorySelect }: CategoriesProps) {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
             <motion.div 
               key={category.title}
@@ -97,7 +97,7 @@ export default function Categories({ onCategorySelect }: CategoriesProps) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group relative h-[220px] md:h-[450px] overflow-hidden rounded-[1.5rem] md:rounded-[2.5rem] border border-rosegold/5 cursor-pointer"
+              className="group relative h-[450px] overflow-hidden rounded-[2.5rem] border border-rosegold/5 cursor-pointer"
             >
               <img 
                 src={category.image} 
@@ -107,10 +107,10 @@ export default function Categories({ onCategorySelect }: CategoriesProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
               
-              <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-end">
-                <h3 className="heading-serif text-lg md:text-3xl mb-1 md:mb-3 translate-y-2 md:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{category.title}</h3>
-                <div className="w-6 md:w-8 h-px bg-rosegold mb-2 md:mb-4 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
-                <p className="text-beige/40 text-[9px] md:text-xs font-light tracking-wide opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 hidden md:block">
+              <div className="absolute inset-0 p-10 flex flex-col justify-end">
+                <h3 className="heading-serif text-3xl mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{category.title}</h3>
+                <div className="w-8 h-px bg-rosegold mb-4 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+                <p className="text-beige/40 text-xs font-light tracking-wide opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
                   {category.description}
                 </p>
               </div>

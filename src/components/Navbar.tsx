@@ -14,7 +14,7 @@ export default function Navbar() {
             Wedding Canvaz
           </div>
           <div className="text-[9px] md:text-[10px] tracking-[3px] uppercase font-serif text-beige/60 font-bold">
-            Collaboration with Studio Pratichhabi
+            Pratichhabi Collaboration
           </div>
         </div>
 

@@ -32,22 +32,22 @@ export default function Testimonials() {
           <h2 className="heading-serif text-5xl md:text-6xl italic italic">Voices of Gratitude</h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {testimonials.map((item, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="relative p-6 md:p-10 bg-black/20 border border-rosegold/10 rounded-[1.5rem] md:rounded-[2rem] hover:border-rosegold/30 transition-colors duration-500"
+              className="relative p-10 bg-black/20 border border-rosegold/10 rounded-[2rem] hover:border-rosegold/30 transition-colors duration-500"
             >
-              <p className="text-beige/70 italic leading-relaxed md:leading-[1.8] mb-6 md:mb-10 text-[10px] md:text-lg font-light tracking-wide line-clamp-4 md:line-clamp-none">
+              <p className="text-beige/70 italic leading-[1.8] mb-10 text-lg font-light tracking-wide">
                 "{item.text}"
               </p>
               <div>
-                <p className="font-bold text-rosegold uppercase tracking-[0.2em] text-[8px] md:text-[10px] mb-1 md:mb-2">{item.author}</p>
-                <div className="w-6 md:w-8 h-px bg-rosegold/30 mb-1 md:mb-2" />
-                <p className="text-[7px] md:text-[9px] text-white/20 uppercase tracking-[0.3em]">{item.event}</p>
+                <p className="font-bold text-rosegold uppercase tracking-[0.2em] text-[10px] mb-2">{item.author}</p>
+                <div className="w-8 h-px bg-rosegold/30 mb-2" />
+                <p className="text-[9px] text-white/20 uppercase tracking-[0.3em]">{item.event}</p>
               </div>
             </motion.div>
           ))}
