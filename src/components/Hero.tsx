@@ -17,12 +17,16 @@ export default function Hero() {
           src={mobileHeroBg} 
           alt="Wedding Ritual Mobile" 
           className="w-full h-full object-cover object-center md:hidden"
+          loading="eager"
+          fetchPriority="high"
         />
         {/* Desktop image */}
         <img 
           src={heroBg} 
           alt="Wedding Ritual" 
           className="hidden md:block w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/40" />
       </motion.div>

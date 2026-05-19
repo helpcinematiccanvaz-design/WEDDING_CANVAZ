@@ -60,6 +60,7 @@ export default function Gallery() {
                 src={item.url} 
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-maroon/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-8 backdrop-blur-[2px]">
@@ -94,6 +95,7 @@ export default function Gallery() {
                 src={url} 
                 className="w-full rounded-2xl transition-all duration-700 hover:scale-[1.02]" 
                 alt={`Moment ${index}`}
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
@@ -109,12 +111,14 @@ export default function Gallery() {
          <img 
             src={bannerTimeless}
             className="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
+            loading="lazy"
             referrerPolicy="no-referrer"
          />
          {/* Mobile image */}
          <img 
             src={rthrMobile}
             className="absolute inset-0 w-full h-full object-cover z-0 md:hidden"
+            loading="lazy"
             referrerPolicy="no-referrer"
          />
       </section>

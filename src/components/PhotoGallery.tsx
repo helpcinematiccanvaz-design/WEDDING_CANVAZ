@@ -207,6 +207,7 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
                     ? "object-contain bg-black/10" 
                     : "object-cover object-center"
                   }`}
+                  loading="lazy"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-maroon/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[1px]" />
