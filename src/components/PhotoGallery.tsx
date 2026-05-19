@@ -130,15 +130,6 @@ const categoryData = {
     "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1974&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1974&auto=format&fit=crop"
   ],
-  "Couple Portraits": [
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1544070078-a212eda27b49?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1974&auto=format&fit=crop"
-  ],
-  "Family Events": [
-    "https://images.unsplash.com/photo-1517404212738-192669453977?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1974&auto=format&fit=crop"
-  ],
   "Maternity Shoots": [
     maternityNew3,
     maternityNew2,
@@ -146,10 +137,6 @@ const categoryData = {
     maternityCaptured,
     "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1974&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1559839734-2e7ea91c002c?q=80&w=1974&auto=format&fit=crop"
-  ],
-  "Reception Events": [
-    "https://images.unsplash.com/photo-1510076857177-74700760be49?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1974&auto=format&fit=crop"
   ]
 };
 
@@ -182,15 +169,15 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
         </div>
 
         {/* Filter Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16 border-b border-rosegold/5 pb-8">
+        <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-2 md:gap-4 mb-16 border-b border-rosegold/5 pb-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => onCategoryChange(cat)}
-              className={`px-6 py-2 rounded-full text-[10px] uppercase tracking-widest transition-all duration-300 ${
+              className={`px-3 md:px-6 py-2.5 rounded-full text-[9px] md:text-[10px] uppercase tracking-widest transition-all duration-300 text-center ${
                 activeCategory === cat 
-                ? "bg-rosegold text-maroon font-bold" 
-                : "text-beige/40 hover:text-rosegold"
+                ? "bg-rosegold text-maroon font-bold shadow-lg shadow-rosegold/20" 
+                : "text-beige/40 hover:text-rosegold border border-rosegold/10 md:border-transparent"
               }`}
             >
               {cat}
@@ -201,7 +188,7 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
         {/* Gallery Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {categoryData[activeCategory as keyof typeof categoryData].map((url, index) => (
@@ -212,7 +199,7 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group relative h-[400px] overflow-hidden rounded-[2rem] border border-rosegold/10 transition-all duration-500 ${
+                className={`group relative h-[250px] md:h-[400px] overflow-hidden rounded-2xl md:rounded-[2rem] border border-rosegold/10 transition-all duration-500 ${
                   (activeCategory === "Pre-Wedding Shoots" && (index === 0 || index === 5)) ||
                   (activeCategory === "Weddings" && [weddingNew6, weddingRitualNew, weddingMandap1, weddingSindoor, weddingVarmala].includes(url))
                     ? "lg:col-span-2" : ""

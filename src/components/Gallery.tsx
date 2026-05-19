@@ -13,6 +13,7 @@ import eventStory7 from '../assets/event_story7.jpg';
 import quoteBg from '../assets/quote_bg_v2.jpg';
 import bannerTimeless from '../assets/banner_timeless_story.jpeg';
 import weddingBannerNew from '../assets/wedding_banner_new.jpg';
+import rthrMobile from '../assets/rthr_mobile.jpg.jpeg';
 
 const weddingStories = [
   { id: 1, url: weddingMain, title: "Timeless Tradition", category: "Wedding" },
@@ -46,14 +47,14 @@ export default function Gallery() {
         </motion.h2>
         <p className="text-center text-beige/50 text-sm font-light mb-16 tracking-widest uppercase">Preserving raw emotions</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {weddingStories.map((item, index) => (
             <motion.div 
               key={item.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="group relative h-[500px] overflow-hidden rounded-[2.5rem] border border-rosegold/10"
+              className="group relative h-[250px] md:h-[500px] overflow-hidden rounded-2xl md:rounded-[2.5rem] border border-rosegold/10"
             >
               <img 
                 src={item.url} 
@@ -104,9 +105,16 @@ export default function Gallery() {
       {/* Quote Section */}
       <section className="relative h-[60vh] flex items-center justify-center my-32 overflow-hidden bg-attachment-fixed">
          <div className="absolute inset-0 bg-black/20 z-10" />
+         {/* Desktop image */}
          <img 
             src={bannerTimeless}
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            className="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
+            referrerPolicy="no-referrer"
+         />
+         {/* Mobile image */}
+         <img 
+            src={rthrMobile}
+            className="absolute inset-0 w-full h-full object-cover z-0 md:hidden"
             referrerPolicy="no-referrer"
          />
       </section>
