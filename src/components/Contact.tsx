@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Send, MapPin, Calendar, Phone, User, Info } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({

@@ -43,7 +43,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="text-beige/80 text-lg md:text-2xl tracking-[0.3em] uppercase font-serif italic mb-12 font-bold"
         >
-          Collaboration with Pratichhabi
+          In Collaboration with Studio Pratichhabi 
         </motion.p>
 
         <motion.div

@@ -2,5 +2,5 @@
   "name": "Wedding Canvaz",
   "description": "A premium, luxurious photography portfolio for high-end wedding and event photography sessions.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

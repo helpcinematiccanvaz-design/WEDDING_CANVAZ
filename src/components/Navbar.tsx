@@ -8,13 +8,13 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="fixed top-0 left-0 w-full z-50 glass"
     >
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="flex flex-col">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-center md:justify-between">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="text-xl md:text-2xl font-bold tracking-[3px] uppercase font-serif text-rosegold w-fit whitespace-nowrap leading-tight">
             Wedding Canvaz
           </div>
           <div className="text-[9px] md:text-[10px] tracking-[3px] uppercase font-serif text-beige/60 font-bold">
-            Pratichhabi Collaboration
+            In Collaboration with Studio Pratichhabi
           </div>
         </div>
 
