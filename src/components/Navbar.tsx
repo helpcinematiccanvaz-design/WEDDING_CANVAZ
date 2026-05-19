@@ -10,11 +10,11 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex flex-col">
-          <div className="text-xl md:text-2xl font-bold tracking-[3px] uppercase font-serif text-rosegold w-fit whitespace-nowrap leading-tight">
+          <div className="text-xl md:text-2xl font-bold tracking-[3px] uppercase font-Room Bold text-rosegold w-fit whitespace-nowrap leading-tight">
             Wedding Canvaz
           </div>
-          <div className="text-[9px] md:text-[10px] tracking-[3px] uppercase font-serif text-beige/60 font-bold">
-            Pratichhabi Collaboration
+          <div className="text-[9px] md:text-[10px] tracking-[3px] uppercase font-Room Bold text-beige/60 font-bold">
+            Collaboration with Studio Pratichhabi
           </div>
         </div>
 
