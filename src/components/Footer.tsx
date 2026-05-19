@@ -17,22 +17,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
-          <h3 className="text-[10px] uppercase tracking-[0.3em] text-rosegold mb-8 font-semibold">Explore</h3>
-          <ul className="space-y-4 text-[10px] uppercase tracking-[0.2em] text-white/40 font-medium">
-            <li><a href="#home" className="hover:text-rosegold transition-colors">Home</a></li>
-            <li><a href="#weddings" className="hover:text-rosegold transition-colors">Portfolio</a></li>
-            <li><a href="#events" className="hover:text-rosegold transition-colors">Services</a></li>
-            <li><a href="#about" className="hover:text-rosegold transition-colors">Journal</a></li>
-          </ul>
-        </div>
+      
+    
 
         <div>
           <h3 className="text-xs uppercase tracking-widest text-rosegold mb-8 font-semibold">Contact</h3>
           <ul className="space-y-6 text-sm text-white/50">
-            <li className="flex gap-3"><MapPin size={16} className="text-rosegold shrink-0" /> 123 Artistry Lane, Creative District</li>
-            <li className="flex gap-3"><Phone size={16} className="text-rosegold shrink-0" /> +1 (555) 000-1234</li>
-            <li className="flex gap-3"><Mail size={16} className="text-rosegold shrink-0" /> hello@weddingcanvaz.com</li>
+            <li className="flex gap-3"><MapPin size={16} className="text-rosegold shrink-0" /> 259 , Parnasree Pally, Kolkata, India, 700060</li>
+            <li className="flex gap-3"><Phone size={16} className="text-rosegold shrink-0" /> +91 8617294235</li>
+            <li className="flex gap-3"><Mail size={16} className="text-rosegold shrink-0" /> info.weddingcanvaz@gmail.com</li>
           </ul>
         </div>
       </div>

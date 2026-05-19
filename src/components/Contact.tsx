@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
-import { Send, MapPin, Calendar, Phone, User, Info } from 'lucide-react';
-import { useState } from 'react';
+import { Send, MapPin, Calendar, Phone, User, Info, Mail } from 'lucide-react';
+import React, { useState } from 'react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -170,9 +170,33 @@ export default function Contact() {
             >
               Start a Conversation
             </motion.h2>
-            <div className="flex justify-center items-center gap-2">
+            <div className="flex justify-center items-center gap-2 mb-12">
                <div className="w-1.5 h-1.5 bg-rosegold rounded-full animate-pulse" />
                <p className="text-rosegold/60 uppercase tracking-[0.3em] text-[10px]">Booking 2026 Destinations</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-16 border-b border-white/5 pb-16">
+              <div className="text-center group">
+                <div className="w-12 h-12 bg-rosegold/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-rosegold/10 group-hover:border-rosegold/30 transition-colors">
+                  <MapPin size={20} className="text-rosegold" />
+                </div>
+                <p className="text-[10px] uppercase tracking-widest text-rosegold mb-2 font-semibold">Location</p>
+                <p className="text-white/60 text-xs leading-relaxed font-light">259 , Parnasree Pally ,<br />Kolkata, India, 700060</p>
+              </div>
+              <div className="text-center group">
+                <div className="w-12 h-12 bg-rosegold/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-rosegold/10 group-hover:border-rosegold/30 transition-colors">
+                  <Phone size={20} className="text-rosegold" />
+                </div>
+                <p className="text-[10px] uppercase tracking-widest text-rosegold mb-2 font-semibold">Call Us</p>
+                <p className="text-white/60 text-xs font-light">+91 8617294235</p>
+              </div>
+              <div className="text-center group">
+                <div className="w-12 h-12 bg-rosegold/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-rosegold/10 group-hover:border-rosegold/30 transition-colors">
+                  <Mail size={20} className="text-rosegold" />
+                </div>
+                <p className="text-[10px] uppercase tracking-widest text-rosegold mb-2 font-semibold">Email</p>
+                <p className="text-white/60 text-xs font-light break-all px-4">info.weddingcanvaz@gmail.com</p>
+              </div>
             </div>
           </div>
 
