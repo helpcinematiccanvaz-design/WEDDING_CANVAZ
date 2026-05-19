@@ -33,9 +33,9 @@ import birthdayStory7 from '../assets/birthday_story_7.jpg';
 import birthdayStory8 from '../assets/birthday_story_8.jpg';
 import birthdayStory9 from '../assets/birthday_story_9.jpg';
 import birthdayStory10 from '../assets/birthday_story_10.jpg';
-import newUpload1 from '../assets/DSC_4800.jpg.jpeg';
-import newUpload2 from '../assets/DSC_3969.jpg.jpeg';
-import newUpload3 from '../assets/DSC_4808.jpg.jpeg';
+import babyShower1 from '../assets/DSC_3969.jpg.jpeg';
+import babyShower2 from '../assets/DSC_4800.jpg.jpeg';
+import babyShower3 from '../assets/DSC_4808.jpg.jpeg';
 import maternityCaptured from '../assets/maternity_captured.png';
 import maternityNew2 from '../assets/maternity_new_2.webp';
 import maternityNew3 from '../assets/maternity_new_3.jpg';
@@ -91,15 +91,9 @@ const categoryData = {
     "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1974&auto=format&fit=crop"
   ],
   "Baby Shower": [
-    birthdayMain,
-    birthdayStory4,
-    birthdayStory5,
-    "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1544122159-3eda33d6dd9a?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1520182205149-1e5e4e7329b4?q=80&w=1974&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=1974&auto=format&fit=crop"
+    babyShower1,
+    babyShower2,
+    babyShower3,
   ],
   "Birthday Events": [
     birthdayMain,
