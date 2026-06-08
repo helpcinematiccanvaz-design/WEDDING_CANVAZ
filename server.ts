@@ -1,20 +1,26 @@
 import express from "express";
 import path from "path";
 import compression from "compression";
+import { fileURLToPath } from "url";
+
+// In ESM, we need to derive __dirname. 
+// When bundled by esbuild to CJS, esbuild will replace this or it will work as-is.
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
+  // PORT must be 3000 for Cloud Run in this environment
   const PORT = 3000;
 
-  // Use compression middleware to gzip/compress responses
+  // Use compression to reduce payload size
   app.use(compression());
 
-  // API routes
+  // Health check endpoint
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok" });
+    res.json({ status: "ok", env: process.env.NODE_ENV });
   });
 
-  // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
@@ -23,25 +29,26 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    // Serve static files in production
-    const distPath = path.join(process.cwd(), "dist");
+    // In production, the server is bundled into dist/server.cjs
+    // So __dirname refers to the dist directory itself
+    const distPath = __dirname;
+    
     app.use(express.static(distPath, {
       maxAge: '1d',
       etag: true
     }));
     
-    // SPA fallback
-    app.get("*all", (req, res) => {
+    app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server listening on 0.0.0.0:${PORT} (NODE_ENV: ${process.env.NODE_ENV})`);
   });
 }
 
-startServer().catch(err => {
-  console.error("Failed to start server:", err);
+startServer().catch((err) => {
+  console.error("Critical server startup failure:", err);
   process.exit(1);
 });
