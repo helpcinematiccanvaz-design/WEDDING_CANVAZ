@@ -1,20 +1,32 @@
 import express from "express";
 import path from "path";
 import compression from "compression";
+import { fileURLToPath } from "url";
+
+// ESM dirname resolution
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Use compression to reduce payload size
+  // Use compression for better performance
   app.use(compression());
 
-  // API routes
+  // Logging
+  app.use((req, res, next) => {
+    if (req.url !== "/api/health") {
+      console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+    }
+    next();
+  });
+
+  // Health check
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
   });
 
-  // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
@@ -23,25 +35,29 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    // Serve static files in production
-    const distPath = path.join(process.cwd(), "dist");
+    // In production, the bundled server.cjs is IN the dist folder.
+    // So __dirname points directly to the dist folder.
+    const distPath = __dirname;
+    
+    console.log(`> Production mode active`);
+    console.log(`> Serving static files from: ${distPath}`);
+    
     app.use(express.static(distPath, {
       maxAge: '1d',
       etag: true
     }));
     
-    // SPA fallback
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`> Server running on port ${PORT}`);
   });
 }
 
 startServer().catch((err) => {
-  console.error("Failed to start server:", err);
+  console.error("FAILED TO START SERVER:", err);
   process.exit(1);
 });
