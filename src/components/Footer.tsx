@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="bg-dark border-t border-white/5 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-        <div className="col-span-1 md:col-span-2">
-          <h2 className="text-3xl font-bold tracking-[3px] uppercase font-serif mb-8 text-rosegold">
+        <div className="col-span-1 md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-[3px] uppercase font-serif mb-6 md:mb-8 text-rosegold">
             Wedding Canvaz
           </h2>
           <p className="text-beige/40 max-w-sm leading-loose text-sm mb-8 font-light">
@@ -17,12 +17,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <h3 className="text-xs uppercase tracking-widest text-rosegold mb-8 font-semibold">Contact</h3>
-          <ul className="space-y-6 text-sm text-white/50">
-            <li className="flex gap-3"><MapPin size={16} className="text-rosegold shrink-0" /> 259 , Parnasree Pally , Kolkata, India, 700060 </li>
-            <li className="flex gap-3"><Phone size={16} className="text-rosegold shrink-0" /> +91 73191 20880 </li>
-            <li className="flex gap-3"><Mail size={16} className="text-rosegold shrink-0" /> info.weddingcanvaz@gmail.com </li>
+          <ul className="space-y-6 text-sm text-white/50 flex flex-col items-center md:items-start">
+            <li className="flex gap-3 text-center md:text-left"><MapPin size={16} className="text-rosegold shrink-0" /> 259 , Parnasree Pally , Kolkata, India, 700060 </li>
+            <li className="flex gap-3 text-center md:text-left"><Phone size={16} className="text-rosegold shrink-0" /> +91 73191 20880 </li>
+            <li className="flex gap-3 text-center md:text-left"><Mail size={16} className="text-rosegold shrink-0" /> info.weddingcanvaz@gmail.com </li>
           </ul>
         </div>
       </div>

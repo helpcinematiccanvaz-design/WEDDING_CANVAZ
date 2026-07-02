@@ -126,13 +126,13 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="max-w-4xl mx-auto px-6">
-        <div className="bg-deep/50 border border-rosegold/10 p-8 md:p-20 rounded-[3rem] backdrop-blur-xl">
-          <div className="text-center mb-16">
+      <section id="contact" className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="bg-deep/50 border border-rosegold/10 p-6 sm:p-8 md:p-20 rounded-[2rem] sm:rounded-[3rem] backdrop-blur-xl">
+          <div className="text-center mb-12 md:mb-16">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="heading-serif text-5xl md:text-6xl mb-4 italic"
+              className="heading-serif text-3xl sm:text-5xl md:text-6xl mb-4 italic"
             >
               Start a Conversation
             </motion.h2>

@@ -62,7 +62,7 @@ export default function Categories({ onCategorySelect }: CategoriesProps) {
             transition={{ duration: 1 }}
           >
             <p className="text-rosegold uppercase tracking-[0.4em] text-[10px] font-semibold mb-4 text-center md:text-left">Artistic Specialties</p>
-            <h2 className="heading-serif text-5xl md:text-7xl italic text-center md:text-left">Photography Categories</h2>
+            <h2 className="heading-serif text-4xl sm:text-5xl md:text-7xl italic text-center md:text-left">Photography Categories</h2>
           </motion.div>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -89,6 +89,7 @@ export default function Categories({ onCategorySelect }: CategoriesProps) {
                 alt={category.title}
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
               
