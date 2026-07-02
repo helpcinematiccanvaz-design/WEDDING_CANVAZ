@@ -156,6 +156,7 @@ export default function PhotoGallery({ activeCategory, onCategoryChange }: Photo
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             className="heading-serif text-4xl sm:text-6xl md:text-8xl italic"
           >
             Photo Gallery

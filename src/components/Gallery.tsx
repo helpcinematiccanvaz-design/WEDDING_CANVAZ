@@ -41,7 +41,8 @@ export default function Gallery() {
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="heading-serif text-5xl md:text-7xl mb-4 text-center italic"
+          viewport={{ once: true }}
+          className="heading-serif text-4xl sm:text-5xl md:text-7xl mb-4 text-center italic"
         >
           Featured Stories
         </motion.h2>
@@ -77,7 +78,8 @@ export default function Gallery() {
         <motion.h2 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          className="heading-serif text-5xl md:text-7xl mb-16 text-center"
+          viewport={{ once: true }}
+          className="heading-serif text-4xl sm:text-5xl md:text-7xl mb-12 md:mb-16 text-center"
         >
           Moments We Capture
         </motion.h2>
